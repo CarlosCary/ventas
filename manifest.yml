@@ -1,0 +1,12 @@
+applications:
+- path: spring-boot-to-tomcat-0.0.1-SNAPSHOT.war
+  memory: 256M
+  instances: 1
+  domain: au-syd.mybluemix.net
+  name: app-turreta-com
+  host: app-turreta-com
+  disk_quota: 1024M
+  buildpack: java_buildpack
+  env:    
+        IBM_LIBERTY_LICENSE: L-MCAO-9SYMVC    
+        JVM: openjdk
