@@ -7,6 +7,13 @@ describe Tablero do
     end
 
     it "Deberia generar 'X' para una jugada" do
-        expect(@tablero.jugada()).to eq "X";
+        expect(@tablero.jugada("1")).to eq "X";
+    end
+
+    it "Deberia generar 'X' para una jugada del jugador 1" do
+        expect(@tablero.jugada("1")).to eq "X";
+    end
+    it "Deberia generar 'O' para una jugada del jugador 2" do
+        expect(@tablero.jugada("2")).to eq "O";
     end
 end
