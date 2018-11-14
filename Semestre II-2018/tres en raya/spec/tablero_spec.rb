@@ -1,6 +1,6 @@
 require "./lib/Tablero"
 
-describe Romano do
+describe Tablero do
     
     before(:each) do
         @tablero = Tablero.new();
