@@ -57,4 +57,12 @@ describe('TennisGame', function(){
         game.P2Score();
         expect(game.getScore()).equal("Love-Forty");
     });
+
+    it ('El puntaje deberia devolver Win for player2 si el jugador 2 realizo cuatro puntos', function(){
+        game.P2Score();
+        game.P2Score();
+        game.P2Score();
+        game.P2Score();
+        expect(game.getScore()).equal("Win for player2");
+    });
 });
