@@ -13,5 +13,9 @@ describe('TennisGame', function(){
     it ('El puntaje deberia devolver Love - All si ningun jugador realizo puntos', function(){
         expect(game.getScore()).equal("Love-All");
     });
-
+    
+    it ('El puntaje deberia devolver Fifteen - All si el jugador 1 realizo un punto', function(){
+        game.P1Score();
+        expect(game.getScore()).equal("Fifteen-Love");
+    });
 });
