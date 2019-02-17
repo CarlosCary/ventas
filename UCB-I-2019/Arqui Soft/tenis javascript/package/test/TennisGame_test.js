@@ -39,4 +39,9 @@ describe('TennisGame', function(){
         game.P1Score();
         expect(game.getScore()).equal("Win for player1");
     });
+
+    it ('El puntaje deberia devolver Love - Fifteen si el jugador 1 realizo un punto', function(){
+        game.P2Score();
+        expect(game.getScore()).equal("Love-Fifteen");
+    });
 });
