@@ -50,4 +50,11 @@ describe('TennisGame', function(){
         game.P2Score();
         expect(game.getScore()).equal("Love-Thirty");
     });
+
+    it ('El puntaje deberia devolver Love - Forty si el jugador 2 realizo tres puntos', function(){
+        game.P2Score();
+        game.P2Score();
+        game.P2Score();
+        expect(game.getScore()).equal("Love-Forty");
+    });
 });
