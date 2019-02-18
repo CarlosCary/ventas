@@ -65,4 +65,12 @@ describe('TennisGame', function(){
         game.P2Score();
         expect(game.getScore()).equal("Win for player2");
     });
+
+    it ('El puntaje deberia devolver Fifteen-All si el jugador 1 y 2 realizaron un punto', function(){
+        game.P1Score();
+        game.P2Score();
+        expect(game.getScore()).equal("Fifteen-All");
+    });
+
+
 });
