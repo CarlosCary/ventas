@@ -23,76 +23,112 @@ TennisGame2.prototype.player1HavePointsAndPlayer2HaveCeroPoints = function() {
 
 TennisGame2.prototype.getScore = function() {
     var result = "";
-    
-    if (this.player1AndPlayer2HaveLess3PointsAndAreDraw()) {
-        switch(this.Player1Points) {
-            case 0:
-                result = "Love";
-                break;
-            case 1:
-                result = "Fifteen";
-                break;
-            case 2:
-                result = "Thirty";
-                break; 
-        }
-        result += "-All";
+    switch(this.Player1Points) {
+        case 0:
+            this.Player1Result = "Love";
+            break;
+        case 1:
+            this.Player1Result = "Fifteen";
+            break;
+        case 2:
+            this.Player1Result = "Thirty";
+            break;
+        case 3:
+            this.Player1Result = "Forty";
+            break;
+    }
+    switch(this.Player2Points) {
+        case 0:
+            this.Player2Result = "Love";
+            break;
+        case 1:
+            this.Player2Result = "Fifteen";
+            break;
+        case 2:
+            this.Player2Result = "Thirty";
+            break;
+        case 3:
+            this.Player2Result = "Forty";
+            break;
+    }
+    if(this.Player1Result === this.Player2Result && this.Player1Points < 3) {
+        result = this.Player1Result + "-" + "All";
+        return result;
+    }
+    if(this.Player1Result === this.Player2Result && this.Player1Points > 2) {
+        result = "Deuce";
         return result;
     }
 
-    if (this.player1AndPlayer2HaveGreater3PointsAndAreDraw())
-        return "Deuce";
+    result = this.Player1Result + "-" + this.Player2Result;
+    // if (this.player1AndPlayer2HaveLess3PointsAndAreDraw()) {
+    //     switch(this.Player1Points) {
+    //         case 0:
+    //             result = "Love";
+    //             break;
+    //         case 1:
+    //             result = "Fifteen";
+    //             break;
+    //         case 2:
+    //             result = "Thirty";
+    //             break; 
+    //     }
+    //     result += "-All";
+    //     return result;
+    // }
 
-    if (this.player1HavePointsAndPlayer2HaveCeroPoints()) {
-        switch(this.Player1Points) {
-            case 1:
-                this.Player1Result = "Fifteen";
-                break;
-            case 2:
-                this.Player1Result = "Thirty";
-                break;
-            case 3:
-                this.Player1Result = "Forty";
-                break;
-        }
-        
-        this.Player2Result = "Love";
-        result = this.Player1Result + "-" + this.Player2Result;
-    }
-    if (this.Player2Points > 0 && this.Player1Points === 0) {
-        if (this.Player2Points === 1)
-            this.Player2Result = "Fifteen";
-        if (this.Player2Points === 2)
-            this.Player2Result = "Thirty";
-        if (this.Player2Points === 3)
-            this.Player2Result = "Forty";
+    // if (this.player1AndPlayer2HaveGreater3PointsAndAreDraw())
+    //     return "Deuce";
 
-        this.Player1Result = "Love";
-        result = this.Player1Result + "-" + this.Player2Result;
-    }
+    // if (this.player1HavePointsAndPlayer2HaveCeroPoints()) {
+    //     switch(this.Player1Points) {
+    //         case 1:
+    //             this.Player1Result = "Fifteen";
+    //             break;
+    //         case 2:
+    //             this.Player1Result = "Thirty";
+    //             break;
+    //         case 3:
+    //             this.Player1Result = "Forty";
+    //             break;
+    //     }
+    //     this.Player2Result = "Love";
+    //     result = this.Player1Result + "-" + this.Player2Result;
+    // }
+    // if (this.Player2Points > 0 && this.Player1Points === 0) {
+    //     if (this.Player2Points === 1)
+    //         this.Player2Result = "Fifteen";
+    //     if (this.Player2Points === 2)
+    //         this.Player2Result = "Thirty";
+    //     if (this.Player2Points === 3)
+    //         this.Player2Result = "Forty";
 
-    if (this.Player1Points > this.Player2Points && this.Player1Points < 4) {
-        if (this.Player1Points === 2)
-            this.Player1Result = "Thirty";
-        if (this.Player1Points === 3)
-            this.Player1Result = "Forty";
-        if (this.Player2Points === 1)
-            this.Player2Result = "Fifteen";
-        if (this.Player2Points === 2)
-            this.Player2Result = "Thirty";
-        result = this.Player1Result + "-" + this.Player2Result;
-    }
-    if (this.Player2Points > this.Player1Points && this.Player2Points < 4) {
-        if (this.Player2Points === 2)
-            this.Player2Result = "Thirty";
-        if (this.Player2Points === 3)
-            this.Player2Result = "Forty";
-        if (this.Player1Points === 1)
-            this.Player1Result = "Fifteen";
-        if (this.Player1Points === 2)
-            this.Player1Result = "Thirty";
-        result = this.Player1Result + "-" + this.Player2Result;
-    }
+    //     this.Player1Result = "Love";
+    //     result = this.Player1Result + "-" + this.Player2Result;
+    // }
+
+    // if (this.Player1Points > this.Player2Points && this.Player1Points < 4) {
+    //     if (this.Player1Points === 2)
+    //         this.Player1Result = "Thirty";
+    //     if (this.Player1Points === 3)
+    //         this.Player1Result = "Forty";
+    //     if (this.Player2Points === 1)
+    //         this.Player2Result = "Fifteen";
+    //     if (this.Player2Points === 2)
+    //         this.Player2Result = "Thirty";
+    //     result = this.Player1Result + "-" + this.Player2Result;
+    // }
+    // if (this.Player2Points > this.Player1Points && this.Player2Points < 4) {
+    //     if (this.Player2Points === 2)
+    //         this.Player2Result = "Thirty";
+    //     if (this.Player2Points === 3)
+    //         this.Player2Result = "Forty";
+    //     if (this.Player1Points === 1)
+    //         this.Player1Result = "Fifteen";
+    //     if (this.Player1Points === 2)
+    //         this.Player1Result = "Thirty";
+    //     result = this.Player1Result + "-" + this.Player2Result;
+    // }
 
     if (this.Player1Points > this.Player2Points && this.Player2Points >= 3) {
         result = "Advantage player1";
