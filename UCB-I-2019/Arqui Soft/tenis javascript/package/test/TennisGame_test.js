@@ -103,4 +103,13 @@ describe('TennisGame', function(){
         game.P2Score();
         expect(game.getScore()).equal("Thirty-All");
     });
+
+    it ('El puntaje deberia devolver Forty-Thirty si el jugador 1 realizo Tres puntos y el jugador 2 realizo dos puntos', function(){
+        game.P1Score();
+        game.P1Score();
+        game.P1Score();
+        game.P2Score();
+        game.P2Score();
+        expect(game.getScore()).equal("Forty-Thirty");
+    });
 });
