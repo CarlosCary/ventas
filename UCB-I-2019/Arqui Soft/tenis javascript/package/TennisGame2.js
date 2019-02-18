@@ -17,12 +17,17 @@ TennisGame2.prototype.getScore = function() {
     var score = "";
     
     if (this.player1AndPlayer2HaveLess3PointsAndAreDraw()) {
-        if (this.Player1Points === 0)
-            score = "Love";
-        if (this.Player1Points === 1)
-            score = "Fifteen";
-        if (this.Player1Points === 2)
-            score = "Thirty";
+        switch(this.Player1Points) {
+            case 0:
+                score = "Love";
+                break;
+            case 1:
+                score = "Fifteen";
+                break;
+            case 2:
+                score = "Thirty";
+                break; 
+        }
         score += "-All";
     }
 
