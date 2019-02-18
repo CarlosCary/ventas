@@ -95,4 +95,12 @@ describe('TennisGame', function(){
         game.P2Score();
         expect(game.getScore()).equal("Win for player1");
     });
+
+    it ('El puntaje deberia devolver Thirty-All si el jugador 1 realizo dos puntos y el jugador 2 realizo dos puntos', function(){
+        game.P1Score();
+        game.P1Score();
+        game.P2Score();
+        game.P2Score();
+        expect(game.getScore()).equal("Thirty-All");
+    });
 });
