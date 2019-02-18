@@ -132,4 +132,15 @@ describe('TennisGame', function(){
         game.P2Score();
         expect(game.getScore()).equal("Deuce");
     });
+
+    it ('El puntaje deberia devolver Advantage player1 si el jugador 1 realizo cuatro puntos y el jugador 2 realizo tres puntos', function(){
+        game.P1Score();
+        game.P1Score();
+        game.P1Score();
+        game.P1Score();
+        game.P2Score();
+        game.P2Score();
+        game.P2Score();
+        expect(game.getScore()).equal("Advantage player1");
+    });
 });
