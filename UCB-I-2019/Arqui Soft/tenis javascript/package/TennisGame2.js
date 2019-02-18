@@ -44,13 +44,18 @@ TennisGame2.prototype.getScore = function() {
         return "Deuce";
 
     if (this.player1HavePointsAndPlayer2HaveCeroPoints()) {
-        if (this.Player1Points === 1)
-            this.Player1Result = "Fifteen";
-        if (this.Player1Points === 2)
-            this.Player1Result = "Thirty";
-        if (this.Player1Points === 3)
-            this.Player1Result = "Forty";
-
+        switch(this.Player1Points) {
+            case 1:
+                this.Player1Result = "Fifteen";
+                break;
+            case 2:
+                this.Player1Result = "Thirty";
+                break;
+            case 3:
+                this.Player1Result = "Forty";
+                break;
+        }
+        
         this.Player2Result = "Love";
         result = this.Player1Result + "-" + this.Player2Result;
     }
