@@ -96,13 +96,6 @@ TennisGame2.prototype.P2Score = function() {
     this.Player2Points++;
 };
 
-TennisGame2.prototype.wonPoint = function(player) {
-    if (player === "player1")
-        this.P1Score();
-    else
-        this.P2Score();
-};
-
 if (typeof window === "undefined") {
     module.exports = TennisGame2;
 }
