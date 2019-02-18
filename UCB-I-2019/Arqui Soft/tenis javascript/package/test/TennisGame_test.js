@@ -193,4 +193,13 @@ describe('TennisGame', function(){
         game.P2Score();
         expect(game.getScore()).equal("Fifteen-Forty");
     });
+
+    it ('El puntaje deberia devolver Win for player2 si el jugador 1 realizo un punto y el jugador 2 realizo cuatro puntos', function(){
+        game.P1Score();
+        game.P2Score();
+        game.P2Score();
+        game.P2Score();
+        game.P2Score();
+        expect(game.getScore()).equal("Win for player2");
+    });
 });
