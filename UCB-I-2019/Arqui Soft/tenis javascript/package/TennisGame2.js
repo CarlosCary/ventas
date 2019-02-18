@@ -2,46 +2,39 @@ var TennisGame2 = function(player1Name, player2Name) {
     this.Player1Points = 0;
     this.Player2Points = 0;
 
-    this.Player1Result = "";
-    this.Player2Result = "";
+    this.Player1resultGame = "";
+    this.Player2resultGame = "";
 
     this.player1Name = player1Name;
     this.player2Name = player2Name;
 };
 
 TennisGame2.prototype.getScore = function() {
-    let result;
+    let resultGame;
 
-    this.Player1Result = assignGenericResult(this.Player1Points);
-    this.Player2Result = assignGenericResult(this.Player2Points);
+    this.Player1resultGame = assignGenericresultGame(this.Player1Points);
+    this.Player2resultGame = assignGenericresultGame(this.Player2Points);
 
-    if(this.player1AndPlayer2HaveLess3PointsAndAreDraw()) {
-        result = this.Player1Result + "-" + "All";
-        return result;
-    }
-    
+    resultGame = this.Player1resultGame + "-" + this.Player2resultGame;
+
     if(this.player1AndPlayer2HaveGreater3PointsAndAreDraw()) {
         return "Deuce";
     }
 
-    result = this.Player1Result + "-" + this.Player2Result;
-
-    if (this.player1HaveAdvantage()) {
-        result = "Advantage player1";
+    if(this.player1AndPlayer2HaveLess3PointsAndAreDraw()) {
+        resultGame = this.Player1resultGame + "-" + "All";
+        return resultGame;
     }
 
-    if (this.player2HaveAdvantage()) {
-        result = "Advantage player2";
+    if(this.playersHaveAdvantage()) {
+        resultGame = this.assignAdvantageOrWin();
     }
-
-    if (this.player1Win()) {
-        result = "Win for player1";
+    
+    if(this.playersWin()) {
+        resultGame = this.assignWin();
     }
-    if (this.player2Win()) {
-        result = "Win for player2";
-    }
-
-    return result;
+    
+    return resultGame;
 };
 
 TennisGame2.prototype.player1AndPlayer2HaveLess3PointsAndAreDraw = function() {
@@ -49,7 +42,7 @@ TennisGame2.prototype.player1AndPlayer2HaveLess3PointsAndAreDraw = function() {
 }
 
 TennisGame2.prototype.player1AndPlayer2HaveGreater3PointsAndAreDraw = function() {
-    return this.Player1Result === this.Player2Result && this.Player1Points > 2;
+    return this.Player1resultGame === this.Player2resultGame && this.Player1Points > 2;
 }
 
 TennisGame2.prototype.player1HavePointsAndPlayer2HaveCeroPoints = function() {
@@ -72,23 +65,57 @@ TennisGame2.prototype.player2Win = function() {
     return this.Player2Points >= 4 && this.Player1Points >= 0 && (this.Player2Points - this.Player1Points) >= 2;
 }
 
-function assignGenericResult(playerPoints) {
-    let result = "";
+TennisGame2.prototype.playersHaveAdvantage = function() {
+    return this.Player1Points >= 3 && this.Player2Points >= 3;
+}
+
+TennisGame2.prototype.assignAdvantageOrWin = function() {
+    let resultGame = "";
+    if (this.player1HaveAdvantage()) {
+        resultGame = "Advantage player1";
+    }
+    
+    if (this.player2HaveAdvantage()) {
+        resultGame = "Advantage player2";
+    }
+    
+    return resultGame;
+}
+
+TennisGame2.prototype.playersWin = function() {
+    return (this.Player1Points > 3 || this.Player2Points > 3) && (this.Player1Points - this.Player2Points >= 2 || this.Player2Points - this.Player1Points >= 2);
+}
+TennisGame2.prototype.assignWin = function() {
+    let resultGame = "";
+    if (this.player1Win()) {
+        resultGame = "Win for player1";
+    }
+    
+    if (this.player2Win()) {
+        resultGame = "Win for player2";
+    }
+    
+    return resultGame;
+}
+
+
+function assignGenericresultGame(playerPoints) {
+    let resultGame = "";
     switch(playerPoints) {
         case 0:
-            result = "Love";
+            resultGame = "Love";
             break;
         case 1:
-            result = "Fifteen";
+            resultGame = "Fifteen";
             break;
         case 2:
-            result = "Thirty";
+            resultGame = "Thirty";
             break;
         case 3:
-            result = "Forty";
+            resultGame = "Forty";
             break;
     }
-    return result;
+    return resultGame;
 }
 
 TennisGame2.prototype.P1Score = function() {
