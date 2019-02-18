@@ -13,6 +13,10 @@ TennisGame2.prototype.player1AndPlayer2HaveLess3PointsAndAreDraw = function() {
     return this.Player1Points === this.Player2Points && this.Player1Points < 3;
 }
 
+TennisGame2.prototype.player1AndPlayer2HaveGreater3PointsAndAreDraw = function() {
+    return this.Player1Points === this.Player2Points && this.Player1Points > 2;
+}
+
 TennisGame2.prototype.getScore = function() {
     var score = "";
     
@@ -29,9 +33,10 @@ TennisGame2.prototype.getScore = function() {
                 break; 
         }
         score += "-All";
+        return score;
     }
 
-    if (this.Player1Points === this.Player2Points && this.Player1Points > 2)
+    if (this.player1AndPlayer2HaveGreater3PointsAndAreDraw())
         score = "Deuce";
 
     if (this.Player1Points > 0 && this.Player2Points === 0) {
