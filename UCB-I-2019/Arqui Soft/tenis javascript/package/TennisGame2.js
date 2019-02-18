@@ -2,8 +2,8 @@ var TennisGame2 = function(player1Name, player2Name) {
     this.Player1Points = 0;
     this.Player2Points = 0;
 
-    this.P1res = "";
-    this.P2res = "";
+    this.Player1Result = "";
+    this.Player2Result = "";
 
     this.player1Name = player1Name;
     this.player2Name = player2Name;
@@ -26,48 +26,48 @@ TennisGame2.prototype.getScore = function() {
 
     if (this.Player1Points > 0 && this.Player2Points === 0) {
         if (this.Player1Points === 1)
-            this.P1res = "Fifteen";
+            this.Player1Result = "Fifteen";
         if (this.Player1Points === 2)
-            this.P1res = "Thirty";
+            this.Player1Result = "Thirty";
         if (this.Player1Points === 3)
-            this.P1res = "Forty";
+            this.Player1Result = "Forty";
 
-        this.P2res = "Love";
-        score = this.P1res + "-" + this.P2res;
+        this.Player2Result = "Love";
+        score = this.Player1Result + "-" + this.Player2Result;
     }
     if (this.Player2Points > 0 && this.Player1Points === 0) {
         if (this.Player2Points === 1)
-            this.P2res = "Fifteen";
+            this.Player2Result = "Fifteen";
         if (this.Player2Points === 2)
-            this.P2res = "Thirty";
+            this.Player2Result = "Thirty";
         if (this.Player2Points === 3)
-            this.P2res = "Forty";
+            this.Player2Result = "Forty";
 
-        this.P1res = "Love";
-        score = this.P1res + "-" + this.P2res;
+        this.Player1Result = "Love";
+        score = this.Player1Result + "-" + this.Player2Result;
     }
 
     if (this.Player1Points > this.Player2Points && this.Player1Points < 4) {
         if (this.Player1Points === 2)
-            this.P1res = "Thirty";
+            this.Player1Result = "Thirty";
         if (this.Player1Points === 3)
-            this.P1res = "Forty";
+            this.Player1Result = "Forty";
         if (this.Player2Points === 1)
-            this.P2res = "Fifteen";
+            this.Player2Result = "Fifteen";
         if (this.Player2Points === 2)
-            this.P2res = "Thirty";
-        score = this.P1res + "-" + this.P2res;
+            this.Player2Result = "Thirty";
+        score = this.Player1Result + "-" + this.Player2Result;
     }
     if (this.Player2Points > this.Player1Points && this.Player2Points < 4) {
         if (this.Player2Points === 2)
-            this.P2res = "Thirty";
+            this.Player2Result = "Thirty";
         if (this.Player2Points === 3)
-            this.P2res = "Forty";
+            this.Player2Result = "Forty";
         if (this.Player1Points === 1)
-            this.P1res = "Fifteen";
+            this.Player1Result = "Fifteen";
         if (this.Player1Points === 2)
-            this.P1res = "Thirty";
-        score = this.P1res + "-" + this.P2res;
+            this.Player1Result = "Thirty";
+        score = this.Player1Result + "-" + this.Player2Result;
     }
 
     if (this.Player1Points > this.Player2Points && this.Player2Points >= 3) {
