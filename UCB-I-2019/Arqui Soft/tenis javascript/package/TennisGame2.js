@@ -9,10 +9,14 @@ var TennisGame2 = function(player1Name, player2Name) {
     this.player2Name = player2Name;
 };
 
+TennisGame2.prototype.player1AndPlayer2HaveLess3PointsAndAreDraw = function() {
+    return this.Player1Points === this.Player2Points && this.Player1Points < 3;
+}
+
 TennisGame2.prototype.getScore = function() {
     var score = "";
-
-    if (this.Player1Points === this.Player2Points && this.Player1Points < 3) {
+    
+    if (this.player1AndPlayer2HaveLess3PointsAndAreDraw()) {
         if (this.Player1Points === 0)
             score = "Love";
         if (this.Player1Points === 1)
@@ -21,6 +25,7 @@ TennisGame2.prototype.getScore = function() {
             score = "Thirty";
         score += "-All";
     }
+
     if (this.Player1Points === this.Player2Points && this.Player1Points > 2)
         score = "Deuce";
 
