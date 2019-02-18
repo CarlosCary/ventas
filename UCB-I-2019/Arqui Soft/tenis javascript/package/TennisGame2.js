@@ -14,13 +14,13 @@ TennisGame2.prototype.player1AndPlayer2HaveLess3PointsAndAreDraw = function() {
 }
 
 TennisGame2.prototype.player1AndPlayer2HaveGreater3PointsAndAreDraw = function() {
-    return this.Player1Points === this.Player2Points && this.Player1Points > 2;
+    return this.Player1Result === this.Player2Result && this.Player1Points > 2;
 }
 
 TennisGame2.prototype.player1HavePointsAndPlayer2HaveCeroPoints = function() {
     return this.Player1Points > 0 && this.Player2Points === 0
 }
-function assignResult(playerPoints) {
+function assignGenericResult(playerPoints) {
     let result = "";
     switch(playerPoints) {
         case 0:
@@ -40,17 +40,17 @@ function assignResult(playerPoints) {
 }
 TennisGame2.prototype.getScore = function() {
     var result = "";
-    
-    this.Player1Result = assignResult(this.Player1Points);
-    this.Player2Result = assignResult(this.Player2Points);
 
-    if(this.Player1Result === this.Player2Result && this.Player1Points < 3) {
+    this.Player1Result = assignGenericResult(this.Player1Points);
+    this.Player2Result = assignGenericResult(this.Player2Points);
+
+    if(this.player1AndPlayer2HaveLess3PointsAndAreDraw()) {
         result = this.Player1Result + "-" + "All";
         return result;
     }
-    if(this.Player1Result === this.Player2Result && this.Player1Points > 2) {
-        result = "Deuce";
-        return result;
+    
+    if(this.player1AndPlayer2HaveGreater3PointsAndAreDraw()) {
+        return "Deuce";
     }
 
     result = this.Player1Result + "-" + this.Player2Result;
