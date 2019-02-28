@@ -29,7 +29,11 @@ describe('TennisGame', function(){
         expect(venta.totalServicios(1)).equal(20);
     });
 
-    it ('El total de 1 servicio y un articulo deberia ser 30', function(){
+    it ('El total de 1 articulo y 1 servicio deberia ser 30', function(){
         expect(venta.total(1, 1)).equal(30);
+    });
+
+    it ('El total de 2 articulo y 1 servicio deberia ser 50', function(){
+        expect(venta.total(2, 1)).equal(40);
     });
 });
