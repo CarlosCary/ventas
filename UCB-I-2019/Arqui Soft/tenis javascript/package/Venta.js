@@ -1,20 +1,24 @@
+
 class Producto {
-    // disponible = new Boolean();
-
-}
-
-class Articulo extends Producto {
-
-}
-
-class Venta {
-    constructor() {
+    constructor(){
     }
 
+    estaDispobible(){
+        return true;
+    }
+}
+class Venta {
+    
+    constructor() {
+        this.producto = new Producto();
+    }
+
+    productosEstanDispobible(){
+        return this.producto.estaDispobible();
+    }
+    
     total() {
         return 0;
     }
 }
-if (typeof window === "undefined") {
-    module.exports = Venta;
-}
+module.exports = Venta;
