@@ -21,7 +21,6 @@ describe('TennisGame', function(){
     });
 
     it ('El coste de un articulo en la venta deberia ser 10', function(){
-        // venta.agregarArticulo();
         expect(venta.totalArticulos(1)).equal(10);
     });
 
@@ -35,5 +34,9 @@ describe('TennisGame', function(){
 
     it ('El total de 2 articulo y 1 servicio deberia ser 50', function(){
         expect(venta.total(2, 1)).equal(40);
+    });
+
+    it ('El total de 2 articulo y 2 servicio deberia ser 60', function(){
+        expect(venta.total(2, 2)).equal(60);
     });
 });
