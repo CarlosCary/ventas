@@ -7,14 +7,18 @@ class Producto {
         return true;
     }
 }
+
+class Articulo extends Producto {
+}
+
 class Venta {
     
     constructor() {
-        this.producto = new Producto();
+        this.articulo = new Articulo();
     }
 
     productosEstanDispobible(){
-        return this.producto.estaDispobible();
+        return this.articulo.estaDispobible();
     }
     
     total() {

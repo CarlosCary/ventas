@@ -16,4 +16,7 @@ describe('TennisGame', function(){
     it ('Los productos en una venta deberian estar disponibles', function(){
         expect(venta.productosEstanDispobible()).equal(true);
     });
+    it ('Los articulos en una venta deberian estar disponibles', function(){
+        expect(venta.productosEstanDispobible()).equal(true);
+    });
 });
