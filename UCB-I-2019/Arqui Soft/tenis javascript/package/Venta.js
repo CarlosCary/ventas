@@ -41,8 +41,8 @@ class Venta {
         return this.servicio.calcularTarifa(cantidadServicios);
     }
 
-    total() {
-        return 0;
+    total(cantidadArticulos, cantidadServicios) {
+        return this.articulo.calcularTarifa(cantidadArticulos) + this.servicio.calcularTarifa(cantidadServicios);
     }
 }
 module.exports = Venta;

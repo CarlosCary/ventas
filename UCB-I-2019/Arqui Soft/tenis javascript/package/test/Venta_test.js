@@ -11,7 +11,7 @@ describe('TennisGame', function(){
     });
 
     it ('Venta sin productos deberia ser 0', function(){
-        expect(venta.total()).equal(0);
+        expect(venta.total(0, 0)).equal(0);
     });
     it ('Los productos en una venta deberian estar disponibles', function(){
         expect(venta.productosEstanDispobible()).equal(true);
@@ -27,5 +27,9 @@ describe('TennisGame', function(){
 
     it ('El coste de un servicio en la venta deberia ser 20', function(){
         expect(venta.totalServicios(1)).equal(20);
+    });
+
+    it ('El total de 1 servicio y un articulo deberia ser 30', function(){
+        expect(venta.total(1, 1)).equal(30);
     });
 });
