@@ -19,4 +19,9 @@ describe('TennisGame', function(){
     it ('Los articulos en una venta deberian estar disponibles', function(){
         expect(venta.productosEstanDispobible()).equal(true);
     });
+
+    it ('El coste de un articulo en la venta deberia ser 10', function(){
+        venta.agregarArticulo();
+        expect(venta.totalArticulo(1)).equal(10);
+    });
 });
