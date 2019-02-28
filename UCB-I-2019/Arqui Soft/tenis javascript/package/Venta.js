@@ -16,24 +16,31 @@ class Articulo extends Producto {
     }
 }
 
+class Servicio extends Producto {
+    calcularTarifa(cantidad) {
+        return cantidad * 20;
+    }
+}
+
 class Venta {
     
     constructor() {
         this.articulo = new Articulo();
-        this.cantidadArticulos = 0;
-        this.cantidadServicios = 0;
+        this.servicio = new Servicio();
     }
 
     productosEstanDispobible(){
         return this.articulo.estaDispobible();
     }
-    
-    agregarArticulo() {
-        this.cantidadArticulos = this.cantidadArticulos + 1;
+
+    totalArticulos(cantidadArticulos) {
+        return this.articulo.calcularTarifa(cantidadArticulos);
     }
-    totalArticulo() {
-        return this.articulo.calcularTarifa(this.cantidadArticulos);
+
+    totalServicios(cantidadServicios) {
+        return this.servicio.calcularTarifa(cantidadServicios);
     }
+
     total() {
         return 0;
     }
